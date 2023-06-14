@@ -7,6 +7,43 @@
     <title>Tes Dasbor Buper</title>
     <link rel="stylesheet" href="bootstrap.css" />
     <style>
+      .mt {
+        margin-top: 2rem !important;
+      }
+      .pr-0 {
+        padding-right: 0;
+      }
+      .pl-0 {
+        padding-left: 0;
+      }
+      .pl-5 {
+        padding-left: 5px !important;
+      }
+      .pr-5 {
+        padding-right: 5px !important;
+      }
+      .pl {
+        padding-left: 2rem !important;
+      }
+      .pr {
+        padding-right: 2rem !important;
+      }
+      .flex-container {
+        display: flex;
+        justify-content: center;
+      }
+      .chart-wrapper {
+        width: 100%;
+        position: relative;
+      }
+      .chart-wrapper-small {
+        width: 60%;
+        position: relative;
+        bottom: 3.5em;
+      }
+      .justify-center {
+        justify-content: center;
+      }
       .bg-dashboard {
         background: rgb(241, 135, 255);
         background: linear-gradient(
@@ -24,7 +61,7 @@
         );
       }
       .bg-primary {
-        background-color: rgb(16, 40, 105);
+        background-color: rgb(2, 39, 93);
         color: #fff;
       }
       .bg-secondary {
@@ -32,6 +69,61 @@
       }
       .bg-info {
         background-color: rgb(28, 153, 255);
+      }
+      .bg-dark-yellow {
+        background-color: rgb(255, 202, 25);
+      }
+      .bg-dark-green {
+        background-color: #2e7d32;
+        color: #fff;
+      }
+      .bg-dark-orange {
+        background-color: #d84315;
+        color: #fff;
+      }
+      .bg-light-blue {
+        background-color: #03a9f4;
+        color: #1b1b1b;
+      }
+      .bg-light-pink {
+        background-color: #fce4ec;
+      }
+      .bg-light-yellow {
+        background-color: #fffde7 !important;
+      }
+      .bg-cyan {
+        background-color: #0097a7 !important;
+      }
+      .bg-grey {
+        background-color: #616161;
+      }
+      .bg-teal-lighten {
+        background-color: #e0f2f1;
+      }
+      .text-white {
+        color: #fafafa;
+      }
+      .text-small {
+        font-size: 11px;
+      }
+      .text-big {
+        font-size: 18px;
+      }
+      .well-xs {
+        padding: 4px;
+        border-radius: 3px;
+      }
+
+      .percent {
+        position: relative;
+        color: #1b1b1b;
+        bottom: 30%;
+      }
+      @media screen and (max-width: 992px) and (min-width: 650px) {
+        .chart-wrapper {
+          width: 75%;
+          position: relative;
+        }
       }
     </style>
   </head>
@@ -53,169 +145,247 @@
               </div>
             </form>
           </div>
-          <div class="col-md-4" style="margin-top: 2rem">
-            <div class="well well-lg bg-primary text-center">
-              DUMMY DASHBOARD
-            </div>
-            <!-- <div class="panel panel-primary" style="margin-top: 2rem">
-              <div class="panel-body">DUMMY DASHBOARD</div>
-            </div> -->
+          <div class="col-md-4 mt">
+            <div class="well well-lg bg-primary text-center">DASHBOARD</div>
           </div>
           <div class="col-md-4 text-right">
-            <h5 style="color: #fff">
-              <strong>PRELIMINARY INVESTIGATION DASHBOARD</strong>
-            </h5>
-            <p><strong>Pemeriksaan Bukti Permulaan</strong></p>
+            <h4 class="text-white">
+              <strong>PRELIMINARY INVESTIGATION</strong>
+            </h4>
+            <h5><strong>Pemeriksaan Bukti Permulaan</strong></h5>
           </div>
         </div>
       </div>
     </header>
 
-    <main style="margin-top: 2rem">
-      <div
-        style="padding-left: 2rem !important; padding-right: 2rem !important"
-      >
-        <div class="row">
-          <!-- Segmen 1 -->
-          <div class="col-md-2">
-            <div class="panel panel-default">
-              <div
-                class="panel-heading text-center"
-                style="background-color: rgb(98, 184, 255); color: #fff"
-              >
-                <h2 class="panel-title text-center"><strong>SPPBP</strong></h2>
-              </div>
-              <div class="panel-body bg-dashboard-reverse">
-                <div class="well well-sm text-center">
-                  <h6>Saldo Awal</h6>
-                  <h5>619</h5>
-                </div>
-                <div class="well well-sm text-center">
-                  <h6>Saldo Awal</h6>
-                  <h5>619</h5>
-                </div>
-                <div class="well well-sm text-center">
-                  <h6>Saldo Awal</h6>
-                  <h5>619</h5>
-                </div>
-                <div class="well well-sm text-center">
-                  <h6>Saldo Awal</h6>
-                  <h5>619</h5>
-                </div>
-                <div class="well well-sm text-center">
-                  <h6>Saldo Awal</h6>
-                  <h5>619</h5>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-2">
-            <div class="panel panel-default bg-secondary">
-              <h4
-                class="panel-title text-right"
-                style="margin-top: 1rem; padding-right: 1rem"
-              >
-                <strong>Total Sprin</strong>
-              </h4>
-              <canvas id="pieChart"></canvas>
-              <div class="form-group">
-                <!-- <h4
-                  class="panel-title text-right"
-                  style="margin-top: 1rem; padding-right: 1rem"
-                >
-                  <strong>Penyelesaian</strong>
-                </h4> -->
-                <canvas id="barChart" height="500"></canvas>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="well" style="padding: 24px 5px 24px 5px !important">
+    <main class="mt pl pr">
+      <!-- SEGEMEN TOP -->
+      <div class="row">
+        <div class="col-md-9 col-sm-12 col-xs-12 pr-0">
+          <div class="row">
+            <div class="col-md-5 col-sm-12 col-xs-12">
               <div class="row">
-                <div class="col-md-3" style="padding-right: 0px !important">
+                <div class="col-md-4 col-sm-5 col-xs-5">
                   <div class="panel panel-default">
-                    <div
-                      class="panel-heading text-center"
-                      style="background-color: rgb(98, 184, 255); color: #fff"
-                    >
-                      <h2 class="panel-title text-center">
-                        <strong>LPBP</strong>
+                    <div class="panel-heading text-center bg-cyan">
+                      <h2 class="panel-title text-center text-white">
+                        <strong>SPPBP</strong>
                       </h2>
                     </div>
                     <div class="panel-body bg-dashboard-reverse">
-                      <div class="well well-sm text-center">
+                      <div class="well well-xs text-center">
+                        <h6>Saldo Awal</h6>
                         <h5>619</h5>
                       </div>
-                      <div class="well well-sm text-center">
+                      <div class="well well-xs text-center">
+                        <h6>Saldo Awal</h6>
+                        <h5>619</h5>
+                      </div>
+                      <div class="well well-xs text-center">
+                        <h6>Saldo Awal</h6>
+                        <h5>619</h5>
+                      </div>
+                      <div class="well well-xs text-center">
+                        <h6>Saldo Awal</h6>
+                        <h5>619</h5>
+                      </div>
+                      <div class="well well-xs text-center">
+                        <h6>Saldo Awal</h6>
                         <h5>619</h5>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="col-md-9">
-                  <div class="panel panel-default">
-                    <div
-                      class="panel-heading text-center"
-                      style="background-color: rgb(98, 184, 255); color: #fff"
-                    >
-                      <h2 class="panel-title text-center">
-                        <strong>PEMULIHAN KN</strong>
-                      </h2>
+                <div class="col-md-8 col-sm-7 col-xs-7">
+                  <div class="panel panel-default bg-light-pink">
+                    <h4 class="panel-title text-right mt pr">
+                      <strong>TOTAL SPRIN</strong>
+                    </h4>
+                    <div class="flex-container">
+                      <div class="chart-wrapper">
+                        <canvas id="pieChart"></canvas>
+                      </div>
                     </div>
-                    <div
-                      class="panel-body bg-dashboard-reverse"
-                      style="padding-bottom: 0px !important"
-                    >
-                      <div class="row">
-                        <div
-                          class="col-md-6"
-                          style="
-                            padding-left: 2px !important;
-                            padding-right: 2px !important;
-                          "
-                        >
-                          <div class="well well-sm text-center">
-                            <small>Pokok (Rp.)</small>
-                            <h5>324.046.515.174</h5>
-                          </div>
+                    <div class="form-group">
+                      <h4 class="panel-title text-right mt pr">
+                        <strong>PENYELESAIAN</strong>
+                      </h4>
+                      <div class="flex-container">
+                        <div class="chart-wrapper">
+                          <canvas id="barChart" height="250"></canvas>
                         </div>
-                        <div
-                          class="col-md-6"
-                          style="
-                            padding-right: 2px !important;
-                            padding-left: 2px !important;
-                          "
-                        >
-                          <div class="well well-sm text-center">
-                            <small>Sanksi (Rp.)</small>
-                            <h5>324.046.515.174</h5>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- END SPPBP & TOTAL SPRN -->
+            <!-- LPBP & PEMULIHAN KN -->
+            <div class="col-md-7 col-sm-12 col-xs-12">
+              <div class="panel panel-default bg-light-pink">
+                <div class="row mt pl pr">
+                  <div class="col-md-3 col-sm-4 col-xs-4 pl-5 pr-5">
+                    <div class="panel panel-default">
+                      <div class="panel-heading bg-cyan">
+                        <div class="text-white text-center">LPBP</div>
+                      </div>
+                      <div class="panel-body bg-dashboard-reverse">
+                        <div class="text-white text-center">
+                          8 (3), Dik., Sumir
+                        </div>
+                        <div class="well well-sm">
+                          <div class="text-dark text-center">292</div>
+                        </div>
+                        <div class="well well-xs">
+                          <div class="text-dark text-center">
+                            <strong>292</strong>
                           </div>
                         </div>
                       </div>
-                      <div class="row">
-                        <div
-                          class="col-md-6"
-                          style="
-                            padding-left: 2px !important;
-                            padding-right: 2px !important;
-                          "
-                        >
-                          <div class="well well-sm text-center">
-                            <h6>324.046.515.174</h6>
-                          </div>
+                    </div>
+                  </div>
+                  <div class="col-md-9 col-sm-8 col-xs-8">
+                    <div class="row">
+                      <div class="panel panel-default">
+                        <div class="panel-heading bg-cyan">
+                          <div class="text-white text-center">PEMULIHAN KN</div>
                         </div>
-                        <div
-                          class="col-md-6"
-                          style="
-                            padding-right: 2px !important;
-                            padding-left: 2px !important;
-                          "
-                        >
-                          <div class="well well-sm text-center">
-                            <h6>324.046.515.174</h6>
+                        <div class="panel-body bg-dashboard-reverse">
+                          <div class="row">
+                            <div class="col-md-6 col-sm-6 col-xs-6 pl-5 pr-5">
+                              <div class="well well-sm">
+                                <div class="text-dark text-center">
+                                  Pokok (Rp.)
+                                </div>
+                                <div class="text-dark text-center">
+                                  324.046.515.174
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-6 pl-5 pr-5">
+                              <div class="well well-sm">
+                                <div class="text-dark text-center">
+                                  Sanksi (Rp.)
+                                </div>
+                                <div class="text-dark text-center">
+                                  324.449.467.538
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-6 col-sm-6 col-xs-6 pl-5 pr-5">
+                              <div class="well well-xs">
+                                <div class="text-dark text-center">
+                                  324.046.515.174
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-md-6 col-sm-6 col-xs-6 pl-5 pr-5">
+                              <div class="well well-xs">
+                                <div class="text-dark text-center">
+                                  324.449.467.538
+                                </div>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row pl-5 pr-5">
+                  <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="panel panel-default">
+                      <div class="panel-heading bg-cyan">
+                        <div class="text-white text-center text-big">
+                          KOLABORASI
+                        </div>
+                      </div>
+                      <div class="panel-body bg-dashboard-reverse">
+                        <div class="row">
+                          <div class="col-md-3 col-sm-4 col-xs-4 pl-5 pr-5">
+                            <div class="text-white text-center text-big">
+                              NASIONAL
+                            </div>
+                          </div>
+                          <div class="col-md-3 col-sm-4 col-xs-4 pl-5 pr-5">
+                            <div class="well well-xs">
+                              <div class="text-dark text-center">Capaian</div>
+                              <div class="text-dark text-center">47.16%</div>
+                            </div>
+                          </div>
+                          <div class="col-md-6 col-sm-4 col-xs-4 pl-5 pr-5">
+                            <div class="well well-xs">
+                              <div class="text-dark text-center">
+                                Pembayaran (Rp.)
+                              </div>
+                              <div class="text-dark text-center">
+                                1.204.756.497.348
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-3 col-sm-4 col-xs-4 pl-5 pr-5">
+                            <div class="text-white text-center text-big">
+                              GAKKUM
+                            </div>
+                          </div>
+                          <div class="col-md-3 col-sm-4 col-xs-4 pl-5 pr-5">
+                            <div class="well well-xs">
+                              <div class="text-dark text-center">Capaian</div>
+                              <div class="text-dark text-center">51.39%</div>
+                            </div>
+                          </div>
+                          <div class="col-md-6 col-sm-4 col-xs-4 pl-5 pr-5">
+                            <div class="well well-xs">
+                              <div class="text-dark text-center">
+                                Pembayaran (Rp.)
+                              </div>
+                              <div class="text-dark text-center">
+                                90.158.820.299
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-7 col-sm-12 col-xs-12">
+              <div class="panel panel-default bg-secondary">
+                <div class="row mt pl pr">
+                  <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="chart-wrapper">
+                      <canvas id="lineChart"></canvas>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5 col-sm-12 col-xs-12">
+              <div
+                class="panel panel-default bg-light-yellow"
+                style="max-height: 40vh"
+              >
+                <h2 class="text-center text-dark">IKU</h2>
+                <div class="flex-container" style="max-height: 30vh">
+                  <div class="chart-wrapper-small">
+                    <canvas id="halfPieChart1"> </canvas>
+                    <div class="percent text-center">
+                      <div class="text-center" style="margin-bottom: 1.8rem">
+                        267/593 (45%)
+                      </div>
+
+                      <h4 style="margin-bottom: 2px !important">
+                        CAPAIAN NASIONAL
+                      </h4>
                     </div>
                   </div>
                 </div>
@@ -223,7 +393,110 @@
             </div>
           </div>
         </div>
-        <div class="row"></div>
+        <div class="col-md-3 col-sm-12 col-xs-12 pl-0 pr-0">
+          <!-- TABLE -->
+          <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="table-responsive">
+              <table class="table table-bordered table-striped table-hover">
+                <thead class="bg-grey text-white">
+                  <th>#</th>
+                  <th>Kanwil</th>
+                  <th>Target</th>
+                  <th>Iku Efektif</th>
+                  <th>Penyelesaian</th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>Jakarta Timur</td>
+                    <td>20</td>
+                    <td>25</td>
+                    <td>125%</td>
+                  </tr>
+                  <tr>
+                    <td>2</td>
+                    <td>Direktorat Penegakan Hukum</td>
+                    <td>48</td>
+                    <td>51</td>
+                    <td>106.25%</td>
+                  </tr>
+                  <tr>
+                    <td>3</td>
+                    <td>Sumatera Barat dan Jambi</td>
+                    <td>8</td>
+                    <td>8</td>
+                    <td>100%</td>
+                  </tr>
+                  <tr>
+                    <td>4</td>
+                    <td>Sumatera Utara 1</td>
+                    <td>7</td>
+                    <td>6</td>
+                    <td>100%</td>
+                  </tr>
+                  <tr>
+                    <td>5</td>
+                    <td>Aceh</td>
+                    <td>5</td>
+                    <td>5</td>
+                    <td>100%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="mt">
+              <div class="table-responsive">
+                <table class="table table-bordered table-striped table-hover">
+                  <thead class="bg-grey text-white">
+                    <th>#</th>
+                    <th>Kelompok</th>
+                    <th>Target</th>
+                    <th>Iku Efektif</th>
+                    <th>Penyelesaian</th>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>Kel.3</td>
+                      <td>20</td>
+                      <td>25</td>
+                      <td>125%</td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>Kel.5</td>
+                      <td>48</td>
+                      <td>51</td>
+                      <td>106.25%</td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>Kel. 1</td>
+                      <td>8</td>
+                      <td>8</td>
+                      <td>100%</td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>Kel. 2</td>
+                      <td>7</td>
+                      <td>6</td>
+                      <td>100%</td>
+                    </tr>
+                    <tr>
+                      <td>5</td>
+                      <td>Kel. 4</td>
+                      <td>5</td>
+                      <td>5</td>
+                      <td>100%</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!-- END TABLE -->
+        </div>
       </div>
     </main>
 
@@ -240,7 +513,7 @@
             {
               label: "TOTAL SPRIN",
               data: [17.5, 82.5],
-              backgroundColor: ["#ecbd21", "#1457a6"],
+              backgroundColor: ["rgb(255, 202, 25)", "rgb(2, 39, 93)"],
             },
           ],
           labels: ["OP", "Badan"],
@@ -257,15 +530,92 @@
           labels: ["8 ayat (3)", "Penyidikan", "Sumir"],
           datasets: [
             {
-              label: "Penyelesaian",
               data: [193, 74, 25],
-              backgroundColor: ["blue", "blue", "blue"],
-              borderColor: ["black", "black", "black"],
+              backgroundColor: ["#2e7d32", "#d84315", "#03a9f4"],
             },
           ],
         },
         options: {
           responsive: true,
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
+        },
+      });
+
+      const lineChart = document.querySelector("#lineChart");
+      const xValues = [
+        "Januari",
+        "Februari",
+        "Maret",
+        "April",
+        "Mei",
+        "Juni",
+        "Juli",
+        "Agustus",
+        "September",
+        "Oktober",
+        "November",
+        "Desember",
+      ];
+      const myLineChart = new Chart(lineChart, {
+        type: "line",
+        data: {
+          labels: xValues,
+          datasets: [
+            {
+              label: "8 Ayat 3",
+              data: [21, 27, 37, 45, 61, 54, 79],
+              backgroundColor: "blue",
+              borderColor: "blue",
+            },
+            {
+              label: "Penyidikan",
+              data: [28, 45, 55, 61, 78, 61, 52],
+              backgroundColor: "#00acc1",
+              borderColor: "#00acc1",
+            },
+            {
+              label: "Sumir",
+              data: [12, 9, 21, 5, 8, 12, 2],
+              backgroundColor: "#d81b60",
+              borderColor: "#d81b60",
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { display: true },
+          },
+        },
+      });
+
+      // SEMI DOUGHNUT CHART
+      const halfPieChart1 = document.querySelector("#halfPieChart1");
+      const myHalfPieChart = new Chart(halfPieChart1, {
+        type: "doughnut",
+        data: {
+          labels: ["Red", "Blue"],
+          datasets: [
+            {
+              data: [45, 55],
+              backgroundColor: ["#1e88e5", "#e53935"],
+              borderColor: ["rgba(54, 162, 235, 1)", "rgba(255,99,132,1)"],
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          rotation: -90,
+          circumference: 180,
+          plugins: {
+            legend: {
+              display: false,
+            },
+          },
         },
       });
     </script>
